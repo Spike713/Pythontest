@@ -1,4 +1,14 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+# @Time     : 2021/9/6 下午 19:30
+# @Author   : Spike713
+# @Site     :
+# @File     : svn_cmd.py
+# @Purpose  :
+# @Software : PyCharm
+# @Copyright:
+# @Licence  :
 from prettytable import PrettyTable
 import os
 
