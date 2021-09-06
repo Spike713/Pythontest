@@ -7,7 +7,7 @@ x.add_row(['1', 'SVN更新主干'])
 x.add_row(['2', 'SVN还原主干'])
 # x.add_row(['3', '启动游戏客户端'])
 x.add_row(['4', '打开主干目录'])
-print(x)
+print(x) # 输出表格
 print("选择指令");
 
 trunk_folder = 'D:/jqdj_v2'
