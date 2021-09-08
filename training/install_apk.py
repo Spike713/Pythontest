@@ -21,11 +21,10 @@ def get_all_apk(file):
 
         if os.path.basename(filepath).endswith('.apk'):  # 查找”.apk“结尾的文件
             apkpath_list.append(filepath)  # apkpath_list列表里加入上面查找到的文件
+            
 def install_apk(apklist: list):
-
     for apk in apklist:
         os.system('adb install -r ' + apk)
-
 
 if __name__ == '__main__':
     get_all_apk('C:\\Users\\Administrator\\Desktop\\UAuto')
