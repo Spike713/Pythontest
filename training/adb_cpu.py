@@ -16,13 +16,13 @@ from pyecharts import Line
 配置游戏包名和名字
 """
 package_name = "com.racoondigi.jieqiusanduisan"  # 配置测试包名
-game_name = "游戏名字"
+game_name = "街球艺术"
 
 
 class Phone():
     def __init__(self):
         self.mem = os.popen("adb shell dumpsys meminfo %s" % package_name)
-        self.cpu = os.popen("adb shell cat /proc/6410/stat")
+        # self.cpu = os.popen("adb shell cat /proc/24863/stat")
         for i in self.mem.readlines():
             if "MEMINFO" in i:
                 self.pid_info = i
@@ -114,7 +114,7 @@ class Phone():
         print("最低PSSTotal", maxlist[-1])
         return [psslist, time_list, cpu_list]
 
-    def graphic(self, test_time=600, duration=2):
+    def graphic(self, test_time, duration):
         """
         作图，调用测试
         :param test_time:测试时间，单位s
@@ -129,7 +129,6 @@ class Phone():
         line.add("PSS_total(M)", attr, v1, mark_point=["max"])
         line.add("CPU(%)", attr, v2, mark_point=["max"])
         line.render()
-
 
 p = Phone()
 p.graphic(20, 1)
