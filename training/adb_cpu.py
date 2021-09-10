@@ -4,7 +4,7 @@
 # @Time     :
 # @Author   : Spike713
 # @Site     :
-# @File     : adb_screenshot.py
+# @File     : adb_cpu.py
 # @Purpose  :
 # @Software : PyCharm
 # @Copyright:
