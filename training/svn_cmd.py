@@ -34,3 +34,5 @@ elif command == '4':
 	os.startfile(trunk_folder)
 else:
 	print('命令输入错误')
+
+	
