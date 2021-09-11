@@ -30,5 +30,3 @@ if __name__ == '__main__':
     get_all_apk('C:\\Users\\Administrator\\Desktop')
     print(apkpath_list)
     install_apk(apkpath_list)
-
-    
