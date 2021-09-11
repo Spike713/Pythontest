@@ -132,3 +132,4 @@ class Phone():
 
 p = Phone()
 p.graphic(20, 1)
+
