@@ -42,3 +42,4 @@ def make_one_reward(row, item_type, item_count):
 
 s = open_workbook('/Users/desktop/快速生成奖励配置/配置模板.xlsx')
 print(s)
+
