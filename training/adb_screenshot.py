@@ -20,3 +20,4 @@ def cap_screen_by_adb(folder):
 
 if __name__ == '__main__':
 	cap_screen_by_adb("D:/bugreport")
+	
