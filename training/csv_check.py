@@ -34,29 +34,29 @@ class Csvcheck():
 		for i in range(2, self.ws.max_row+1):
 			if self.ws.cell(i, 1).value not in id_list:
 				if i - 1 != self.ws.cell(i, 1).value:
-					print("ID自增错误！! 行数:{}".format(i + 1))
+					print("ID自增错误！！ 行数:{}".format(i + 1))
 
 				id_list.append(self.ws.cell(i, 1).value)
 				print(id_list)
 			else:
-				print("ID重复！! 行数:{}".format(i))
-
-	def check_lua(self, column_num: int):
+				print("ID重复！！ 行数:{}".format(i))
+"""
+	def check_lua():
 		'''
 		检查lua数据列 是否存在中文标点符号 是否存在不连续的{}
-		column_num: lua数据列的列号码
 		:return:
 		'''
 		cn_str = ["，", "。", "；", "："]
-		for i in range(2, self.ws.max_row+1):
-			lua_str = str(self.ws.cell(i, column_num).value)
-			for j in cn_str:
-				if j in lua_str:
-					print("检查到中文字符！! 行数:{} 列数:{}".format(i, column_num))
-			if lua_str.count("{") != lua_str.count("}"):
-				print("{{和}}的个数不相等！！ 行行数:{} 列数:{}".format(i, column_num))
-
+        	for i in range(2, ws.max_row + 1):
+            		#for j in range(2, ws.max_column + 1):
+                		lua_str = str(ws.cell(i, 1).value)
+                		for k in cn_str:
+                    			if k in lua_str:
+                        			print("检查到中文字符！！ 行数:{} 列数:{}".format(i, j))
+                		if lua_str.count("{") != lua_str.count("}"):
+                    			print("{{和}}的个数不相等！！ 行数:{} 列数:{}".format(i, j))
+"""
 if __name__ == '__main__':
-	s = Csvcheck('/Users/desktop/快速生成奖励配置/配置模板.xlsx')
+	s = Csvcheck('/Users/Administrator/Desktop/快速生成奖励配置/reward.xlsx')
 	s.check_id()
-	s.check_lua(3)
+#	s.check_lua()
