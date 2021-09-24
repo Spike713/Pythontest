@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 
 # @Time     :
-# @Author   :
-# @Site     : 
-# @File     : gm_explian.py
+# @Author   : Spike713
+# @Site     :
+# @File     : gm_explain.py
 # @Purpose  :
 # @Software : PyCharm
 # @Copyright:
 # @Licence  :
 
-class gmexplian():
+class gm_explain():
 
 
 	def check_command_is_legal(self, command: str):
@@ -45,8 +45,8 @@ class gmexplian():
 			number_list[1] = int(number_list[1])
 			if number_list[0] >= number_list[1]:
 				print('后面的数字需要大于前面的数字')
-			for i in range(number_list[0], number_list[1]):
-				print('add item ' + str(i) + self.command[split:])
+			for i in range(number_list[0], number_list[1]+1):
+				print('add_item ' + str(i) + self.command[split:])
 
 	def add_item_by_list(self, command: str):
 		'''
@@ -62,7 +62,7 @@ class gmexplian():
 			data = self.command[start + 2:end]
 			number_list = data.split(',')
 			for i in number_list:
-				print('add item ' + str(i) + self.command[split + 2:])
+				print('add_item ' + str(i) + self.command[split + 2:])
 
 	def add_item_by_list_and_join(self, command: str):
 		'''
@@ -81,19 +81,18 @@ class gmexplian():
 			ban_list = command_list[1].split(',')
 			number_list[0] = int(number_list[0])
 			number_list[1] = int(number_list[1])
-			print(ban_list)
 			if number_list[0] >= number_list[1]:
 				print('后面的数字需要大于前面的数字')
 			for i in range(number_list[0], number_list[1] + 1):
 				if str(i) not in ban_list:
-					print('add item ' + str(i) + self.command[split + 2:])
+					print('add_item ' + str(i) + self.command[split + 2:])
 
 
 if __name__ == '__main__':
 	str1 = 'add_item {{1001 to 1003}},10'
 	str2 = 'add_item {{1001,1003,1006}},10'
 	str3 = 'add_item {{1001 to 1005 not 1002,1003}},10'
-	gm = gmexplian()
+	gm = gm_explain()
 	gm.add_item_normal(str1)
 	gm.add_item_by_list(str2)
 	gm.add_item_by_list_and_join(str3)
