@@ -21,8 +21,8 @@ app = Flask(__name__)
 2、运行app.py
 3、打开浏览器 localhost:7777
 """
-# folder = "/home/zhang/snap/nextcloud-client/10/Nextcloud/slots-package/android/test"
-folder = "/home/zhang/snap/nextcloud-client/10/Nextcloud/ArcheryElite/程序包/测试用"
+
+file = "/Users/Administrator/Desktop/apk下载"
 port = 7777
 
 
@@ -39,16 +39,16 @@ def get_host_ip():
 def get_qrcod(file, port):
     img = qrcode.make("http://" + get_host_ip() + ":%s/download/" % port + file)
     img.get_image()
-    img.save("static/" + file + ".png")
+    name = 'jqdj_1.0.49_55_s.apk.png'
+    img.save(name)
 
 
 def get_file():
     file_list = ""
-    for i in os.listdir(folder):
-        file_path = folder + "/" + i
-        create_time = str(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(os.path.getmtime(folder))))
+    for i in os.listdir(file):
+        file_path = file + "/" + i
+        create_time = str(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(os.path.getmtime(file))))
         file_size = str(float("%.3f" % (os.path.getsize(file_path) / 1000000))) + "MB"
-        # file_info["name"], file_info["time"], file_info["size"] = i, create_time, str(file_size) + "MB"
         file_list = file_list + i + "=" + create_time + "=" + file_size + ","
         get_qrcod(i, port)
     return file_list[:-1]
@@ -56,18 +56,14 @@ def get_file():
 
 @app.route("/")
 def index():
-    # print(get_file())
     return render_template("index.html", apks=(get_file()))
-    # return send_from_directory(dictionary, filename, as_attachment=True)
 
 
 @app.route("/download/<filename>", methods=['GET'])
 def download_file(filename):
     # 需要知道2个参数, 第1个参数是本地目录的path, 第2个参数是文件名(带扩展名)
-    dictionary = "/home/slots-package/android/test"
-    return send_from_directory(dictionary, filename, as_attachment=True)
+    return send_from_directory(file, filename, as_attachment=True)
 
 
 if __name__ == '__main__':
-    # app.run()
     app.run(host="0.0.0.0", port=port, debug=True, threaded=True)
